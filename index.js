@@ -62,12 +62,10 @@ app.get(
 
     const readableStream = fs.createReadStream(fullPath);
     const transformStream = sharp({ sequentialRead: true })
-      .trim()
       .resize(w, h, {
         withoutEnlargement: true,
         position: sharp.strategy.attention,
       })
-      .normalise()
       .on("info", setHeaders(res));
 
     if (f == "webp") {
@@ -111,13 +109,11 @@ app.get(
 
     const readableStream = fs.createReadStream(fullPath);
     const transformStream = sharp({ sequentialRead: true })
-      .trim()
       .resize(w, h, {
         withoutEnlargement: true,
         position: sharp.strategy.attention,
       })
       .blur()
-      .normalise()
       .on("info", setHeaders(res));
 
     if (f == "webp") {
