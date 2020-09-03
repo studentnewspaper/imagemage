@@ -37,7 +37,7 @@ function setHeaders(res) {
 }
 
 const imageSchema = Joi.object({
-  w: Joi.number().min(10).max(2000).default(500),
+  w: Joi.number().min(10).max(2000),
   h: Joi.number().min(10).max(2000),
   f: Joi.string().allow("webp", "jpeg"),
 });
