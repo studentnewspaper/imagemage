@@ -32,7 +32,8 @@ async function isFileValid(fullPath) {
 function setHeaders(res) {
   return function (info) {
     res.set("Content-Type", `image/${info.format}`);
-    res.set("Cache-Control", "public, max-age=31536000");
+    res.set("Cache-Control", "public, max-age=31536000, immutable");
+    res.set("Vary", "Accept");
   };
 }
 
