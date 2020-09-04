@@ -8,6 +8,16 @@ const Joi = require("@hapi/joi");
 const validator = require("express-joi-validation").createValidator({});
 
 const app = express();
+app.use(
+  require("cors")({
+    origin: [
+      "https://studentnewspaper.org",
+      /\.studentnewspaper\.org$/,
+      "http://localhost:3000",
+      "https://localhost:3000",
+    ],
+  })
+);
 if (process.env.NODE_ENV == "production") {
   app.use(
     signed({ secret: process.env.SECRET }).verifier({
