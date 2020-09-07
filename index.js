@@ -75,7 +75,6 @@ app.get(
     const transformStream = sharp({ sequentialRead: true })
       .resize(w, h, {
         withoutEnlargement: true,
-        position: sharp.strategy.attention,
       })
       .on("info", setHeaders(res));
 
@@ -122,7 +121,6 @@ app.get(
     const transformStream = sharp({ sequentialRead: true })
       .resize(w, h, {
         withoutEnlargement: true,
-        position: sharp.strategy.attention,
       })
       .blur()
       .on("info", setHeaders(res));
