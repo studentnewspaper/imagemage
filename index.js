@@ -51,6 +51,7 @@ const imageSchema = Joi.object({
   w: Joi.number().min(10).max(2000),
   h: Joi.number().min(10).max(2000),
   f: Joi.string().allow("webp", "jpeg"),
+  strat: Joi.string().allow("entropy", "attention"),
 });
 
 app.get(
@@ -75,6 +76,7 @@ app.get(
     const transformStream = sharp({ sequentialRead: true })
       .resize(w, h, {
         withoutEnlargement: true,
+        position: req.query.strat ?? "centre",
       })
       .on("info", setHeaders(res));
 
