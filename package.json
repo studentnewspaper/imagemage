@@ -8,7 +8,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-joi-validation": "^4.0.4-beta.0",
-    "sharp": "^0.26.3",
+    "sharp": "^0.28.3",
     "signed": "^1.0.3"
   }
 }
